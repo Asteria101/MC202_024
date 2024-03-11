@@ -81,7 +81,12 @@ void define_coefficients(Line *line) {
 		line->y_intercept = line->end.y;
 	}
 	else {
-        line->y_intercept = line->ini.y - line->ini.x * line->slope;
+        if (line->ini.x < 0 && line->ini.y < 0) {
+            line->y_intercept = line->end.y - line->end.x * line->slope;
+        }
+        else {
+            line->y_intercept = line->ini.y - line->ini.x * line->slope;
+        }
     }
 }
 
@@ -90,23 +95,24 @@ void define_coefficients(Line *line) {
 * Draw lines in matrix
 */
 void draw_lines(int **matrix, int N, Line line) {
-    float y = line.ini.y;
-	for (int x = line.ini.x; x < line.end.x; x++) {
-        if (x >= N || y >= N) break;
-
-		y = ((line.slope * x) + line.y_intercept);
-		
-		int a = 99 - (int)y;
-		if (y >= 0 && x >= 0) {
-			matrix[a][x] = 1;
-		}
-	}
-
     // vertical lines
     if (line.slope == 0 && line.y_intercept == 0) {
-        for (int y = line.ini.y; y < line.end.y; y++) {
+        for (int y = line.ini.y; y <= line.end.y; y++) {
             matrix[y][line.ini.x] = 1;
         }
+    }
+    else {
+        for (int x = line.ini.x; x <= line.end.x; x++) {
+            float y = ((line.slope * x) + line.y_intercept);
+            
+            if (x >= N || y >= N) break;
+            
+            int a = (N - 1) - (int)y;
+
+            if (y >= 0 && x >= 0) {
+                matrix[a][x] = 1;
+            }
+        } 
     }
 }
 
@@ -173,7 +179,7 @@ int main(int argc, char *argv[]) {
     Line line_1, line_2;
 
     /* Read file */
-    /*FILE *fp = fopen(argv[1], "r");
+    FILE *fp = fopen(argv[1], "r");
 
     fscanf(
     fp, "(%d %d %d %d) ",
@@ -185,12 +191,8 @@ int main(int argc, char *argv[]) {
     &line_2.ini.x, &line_2.ini.y, &line_2.end.x, &line_2.end.y
     );
 
-    fclose(fp);*/
+    fclose(fp);
     /* End of file */
-
-    /* test 03 - incorrect (zeros where should be ones and vice versa) */
-    line_1.ini.x = -20, line_1.ini.y = -20, line_1.end.x = 50, line_1.end.y = 60;
-    line_2.ini.x = -30, line_2.ini.y = -20, line_2.end.x = 50, line_2.end.y = 30;
 
     int **matrix = create_matrix(MAX_DIM);
 
