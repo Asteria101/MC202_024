@@ -97,9 +97,13 @@ void define_coefficients(Line *line) {
 void draw_lines(int **matrix, int N, Line line) {
     // vertical lines
     if (line.slope == 0 && line.y_intercept == 0) {
-        for (int y = line.ini.y; y <= line.end.y; y++) {
-            matrix[y][line.ini.x] = 1;
+        if (line.end.y > line.ini.y) {
+            for (int y = line.ini.y; y < line.end.y; y++) {
+                int a = N - 1 - y;
+                matrix[a][line.end.x] = 1;
+            }
         }
+        
     }
     else {
         for (int x = line.ini.x; x <= line.end.x; x++) {
@@ -154,15 +158,27 @@ int verify_intersection(Line line_1, Line line_2, Point *intersection) {
         if ((line_1.y_intercept != line_2.y_intercept) && (line_1.slope != line_2.slope)) {
             x = -1 * (line_1.y_intercept - line_2.y_intercept) / (line_1.slope - line_2.slope);
             y = line_1.slope * x + line_1.y_intercept;
+
+            if ((line_1.y_intercept == 0 && line_1.slope == 0) || (line_2.y_intercept == 0 && line_2.slope == 0)) {
+                if (line_1.slope == 0) {
+                    x = line_1.ini.x;
+                    y = x * line_2.slope + line_2.y_intercept;
+                }
+                else if (line_2.slope == 0) {
+                    x = line_2.ini.x;
+                    y = x * line_1.slope + line_1.y_intercept;
+                }
+            }
         }
         else {
             if (line_1.slope == 0) {
                 x = line_1.ini.x;
+                y = x * line_2.slope + line_2.y_intercept;
             }
             else if (line_2.slope == 0) {
                 x = line_2.ini.x;
+                y = x * line_1.slope + line_1.y_intercept;
             }
-            y = x;
         }
 
         intersection->x = (int)x;
