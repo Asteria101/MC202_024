@@ -3,27 +3,27 @@
 
 #define M_PI 3.14159265358979323846
 
-    typedef enum {
-        false, true
-    }bool;
+typedef enum {
+    false, true
+}bool;
 
-    typedef struct _ponto {
-        float x, y;
-    } Ponto, Vetor;
+typedef struct _ponto {
+    float x, y;
+} Ponto, Vetor;
 
-    typedef struct _triangulo {
-        Ponto P[3];
-    } Triangulo;
+typedef struct _triangulo {
+    Ponto P[3];
+} Triangulo;
 
 
 bool Tri (Triangulo T) {
     for (int i = 0; i < 3; i++) {
         Vetor V[2];
-        V[0].x = T.P[i-1].x-T.P[i].x;
-        V[0].y = T.P[i-1].y-T.P[i].y;
+        V[0].x = T.P[(i+1) % 3].x-T.P[i].x;
+        V[0].y = T.P[(i+1) % 3].y-T.P[i].y;
 
-        V[1].x = T.P[i-2].x-T.P[i].x;
-        V[1].y = T.P[i-2].y-T.P[i].y;
+        V[1].x = T.P[(i+2) % 3].x-T.P[i].x;
+        V[1].y = T.P[(i+2) % 3].y-T.P[i].y;
 
         for (int j = 0; j < 2; j++) {
             float m = sqrt(V[j].x * V[j].x + V[j].y * V[j].y);
@@ -54,10 +54,10 @@ int main() {
     T.P[2].y = 3;
 
     if (Tri(T) == true) {
-        printf("Boa!");
+        printf("Boa!\n");
     }
     else {
-        printf("Se fudeu!");
+        printf("Se fudeu!\n");
     }
 
 
