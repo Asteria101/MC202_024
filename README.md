@@ -11,3 +11,5 @@ Laboratórios de MC202 1s 2024, disciplina ministrada pelo professor Falcão.
 ### Testes :pencil:
 
 - [x] [Teste 1](https://github.com/Asteria101/MC202_024/blob/main/testes/test1.c) &rarr; Triângulo Retângulo
+- [x] [Teste 2](https://github.com/Asteria101/MC202_024/blob/main/testes/test2.c) &rarr; Amigo mais velho
+- [x] [Teste 3](https://github.com/Asteria101/MC202_024/blob/main/testes/test3.c) &rarr; Lista simples para lista dupla
