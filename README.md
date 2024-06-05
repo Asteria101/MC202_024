@@ -14,3 +14,4 @@ Teste e laboratórios de MC202 1s 2024, disciplina ministrada pelo professor Fal
 - [x] [Lab 02](https://github.com/Asteria101/MC202_024/tree/main/lab02) &rarr; Verifica Saída de Labirintos 13/13 :blush:
 - [x] [Lab 03](https://github.com/Asteria101/MC202_024/tree/main/lab03) &rarr; Operações morfológicas 4/4 :wink:
 - [x] [Lab 04](https://github.com/Asteria101/MC202_024/tree/main/lab04) &rarr; Construção e percurso de Árvore Binária 8/8 :kissing:
+- [x] [Lab 05](https://github.com/Asteria101/MC202_024/tree/main/lab05) &rarr; Construção, inserção e remoção para Árvore AVL - Organização de Rede 6/6 :stuck_out_tongue::
