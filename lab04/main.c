@@ -101,7 +101,7 @@ void nodes_pre(char *pre, int nl, int nr, char **l_pre, char **r_pre) {
 
 
 /*
-* Build tree using simetric and pos-order
+* Build tree using simetric and pre-order
 */
 p_binTree build_tree(char *sim, char *pre, int n) {
     char *l_sim = NULL, *r_sim = NULL;
