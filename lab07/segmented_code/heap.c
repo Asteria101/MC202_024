@@ -103,36 +103,6 @@ int remove_heap(p_heap H) {
 }
 
 
-/*void print_sequence(p_heap H) {
-    printf("Percurso [No %c]:", H->node[0].name);
-    for (int i = 1; i < H->n; i++) {
-        printf(" (%c %.6f) ", H->node[i].name, H->node[i].distance);
-    }
-    printf("\n");
-}*/
-
-
-void print_heap(p_heap H, int index, int level) {
-    int i;
-    if (index < H->n) {
-        print_heap(H, RightSon(index), level + 1);
-
-        for (i = 0; i < level; i++) {
-            printf("         ");
-        }
-
-        printf("[%c](%.6f)", H->node[index], H->distance[index]);
-
-        for (i = 0; i <= (int)log2(H->n) - level; i++) {
-            printf("---");
-        }
-
-        printf("\n");
-        print_heap(H, LeftSon(index), level + 1);
-    }
-}
-
-
 void free_heap(p_heap *H) {
     if ((*H) != NULL) {
         free((*H)->node);

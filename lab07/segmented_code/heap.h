@@ -57,15 +57,6 @@ void insert_heap(p_heap H, int node);
 int remove_heap(p_heap H);
 
 /*
-* Print minimum route
-*/
-//void print_sequence(p_heap H);
-/*
-* Print heap as a tree
-*/
-void print_heap(p_heap H, int index, int level);
-
-/*
 * Free heap memory usage
 */
 void free_heap(p_heap *H);
