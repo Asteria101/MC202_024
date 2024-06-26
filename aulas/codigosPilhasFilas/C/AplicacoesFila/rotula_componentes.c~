@@ -1,0 +1,24 @@
+#include "imagem.h"
+
+/* gcc rotula_componentes.c imagem.c adjacencia.c -o rotula_componentes */
+
+int main(int argc, char **argv)
+{
+  if (argc != 3) {
+    printf("%s <comp_binarios.pgm> <comp_coloridos.ppm>\n",argv[0]);
+    exit(-1);
+  }
+
+  Imagem     *img = LeImagem(argv[1]);
+  Adjacencia *adj = Retangular(11,11);
+  Imagem     *rot = RotulaComponentes(img,adj);
+  Imagem     *col = ColoreComponentes(rot);
+  GravaImagem(col,argv[2]);
+  
+  DestroiImagem(&img);
+  DestroiImagem(&rot);
+  DestroiImagem(&col);
+  DestroiAdjacencia(&adj);
+
+  return(0);
+}

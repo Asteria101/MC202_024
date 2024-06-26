@@ -1,0 +1,16 @@
+#ifndef _ADJACENCIA_H_
+#define _ADJACENCIA_H_
+
+#include <malloc.h>
+
+typedef struct _adjacencia {
+  int *dx, *dy; /* deslocamentos em x e y */
+  int  nadj;    /* número de adjacentes */
+} Adjacencia;
+
+Adjacencia *CriaAdjacencia(int nadj);
+void        DestroiAdjacencia(Adjacencia **adj);
+Adjacencia *Retangular(int nx, int ny);
+
+#endif
+
