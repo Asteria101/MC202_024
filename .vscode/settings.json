@@ -1,6 +1,9 @@
 {
     "files.associations": {
       "stdio.h": "c",
-      "stdlib.h": "c"
+      "stdlib.h": "c",
+      "typeinfo": "c",
+      "includes.h": "c",
+      "adj_matrix.h": "c"
     }
 }
