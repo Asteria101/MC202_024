@@ -1,12 +1,12 @@
 #include "ArvBinBusca.h"
 
-/*----------- Funçoes Privadas -----------------------------------------*/
+/*----------- Funï¿½oes Privadas -----------------------------------------*/
 
 char RemoveNoGrau0ou1(ABBusca **ab);
 void SubstituiRemoveMenorSucessor(ABBusca **ab, ABBusca **maisesq); 
 void CalculaFrequencia(ABBusca *ab, int **f);
 
-/* Trata remoçao de no folha ou com um unicio filho, retornando 1. Se
+/* Trata remoï¿½ao de no folha ou com um unicio filho, retornando 1. Se
    este nao for o caso, retorna 0. */
 
 char RemoveNoGrau0ou1(ABBusca **ab)
@@ -47,7 +47,7 @@ void SubstituiRemoveMenorSucessor(ABBusca **ab, ABBusca **maisesq)
 }
 
 /* Acumula a frequencia dos valores da arvore ab em vetor f para
-   auxiliar a funçao Frequencia. */
+   auxiliar a funï¿½ao Frequencia. */
 
 void CalculaFrequencia(ABBusca *ab, int **f)
 {
@@ -59,9 +59,9 @@ void CalculaFrequencia(ABBusca *ab, int **f)
 }
 
 
-/*------------------- Funçoes Publicas ---------------------------------*/
+/*------------------- Funï¿½oes Publicas ---------------------------------*/
 
-/* Aloca e preenche um novo nó folha (insercao eh sempre de no
+/* Aloca e preenche um novo nï¿½ folha (insercao eh sempre de no
    folha) */
 
 NoABBusca *CriaNovoNo(int info) {
